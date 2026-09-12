@@ -9,6 +9,7 @@
 @source "../../cart.html";
 @source "../../checkout.html";
 @source "../../order-detail.html";
+@source "../../orders.html";
 @source "../js/app.js";
 
 @theme {
