@@ -12,9 +12,11 @@
 @source "../../orders.html";
 @source "../../login.html";
 @source "../../profile.html";
+@source "../../rate-order.html";
 @source "../js/app.js";
 @source "../js/auth.js";
 @source "../js/profile.js";
+@source "../js/rate-order.js";
 
 @theme {
   --color-ink: #2b2b26;
