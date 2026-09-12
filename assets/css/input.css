@@ -2,6 +2,8 @@
 
 @source "../../index.html";
 @source "../../product.html";
+@source "../../categories.html";
+@source "../../vendors.html";
 @source "../js/app.js";
 
 @theme {
