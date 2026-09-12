@@ -10,7 +10,9 @@
 @source "../../checkout.html";
 @source "../../order-detail.html";
 @source "../../orders.html";
+@source "../../login.html";
 @source "../js/app.js";
+@source "../js/auth.js";
 
 @theme {
   --color-ink: #2b2b26;
