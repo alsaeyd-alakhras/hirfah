@@ -13,6 +13,7 @@
 @source "../../login.html";
 @source "../../profile.html";
 @source "../../rate-order.html";
+@source "../../*.html";
 @source "../js/app.js";
 @source "../js/auth.js";
 @source "../js/profile.js";
