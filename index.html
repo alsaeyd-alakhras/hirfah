@@ -69,11 +69,25 @@
         <nav class="flex shrink-0 items-center gap-8 text-[15px] font-semibold leading-[22.5px] text-olive"
           data-node-id="223:3463">
           <a href="#home" class="border-b-2 border-copper pb-1.5 font-bold text-copper">الرئيسية</a>
-          <a href="#shop" class="py-1">المتجر والأقسام</a>
-          <a href="categories.html" class="py-1">كل التصنيفات</a>
-          <a href="vendors.html" class="py-1">كل المتاجر</a>
+
+          <div class="nav-dropdown group relative py-1">
+            <button type="button" class="flex items-center gap-1.5" aria-haspopup="true" aria-expanded="false">
+              <span>تسوّق</span>
+              <i data-lucide="chevron-down" class="h-4 w-4 transition-transform duration-200 group-[.nav-dropdown-open]:rotate-180"></i>
+            </button>
+            <div
+              class="nav-dropdown-panel invisible absolute start-0 top-full z-40 mt-2 w-56 origin-top-start rounded-xl border border-line bg-surface p-2 opacity-0 shadow-soft transition-[opacity,transform] duration-150 [transform:scale(.97)] group-[.nav-dropdown-open]:visible group-[.nav-dropdown-open]:opacity-100 group-[.nav-dropdown-open]:[transform:scale(1)]">
+              <a href="browse.html" class="block rounded-lg px-3 py-2 text-sm font-semibold text-ink hover:bg-canvas">حسب المنتج</a>
+              <a href="categories.html" class="block rounded-lg px-3 py-2 text-sm font-semibold text-ink hover:bg-canvas">حسب الحرفة</a>
+              <a href="browse.html?sort=newest#city" class="block rounded-lg px-3 py-2 text-sm font-semibold text-ink hover:bg-canvas">حسب المدينة</a>
+              <a href="browse.html?occasion=all" class="block rounded-lg px-3 py-2 text-sm font-semibold text-ink hover:bg-canvas">حسب المناسبة</a>
+            </div>
+          </div>
+
+          <a href="vendors.html" class="py-1">الحرفيون والمتاجر</a>
+          <a href="browse.html?sale=1" class="py-1">العروض</a>
           <a href="#season" class="py-1">مختارات الموسم</a>
-          <a href="#artisans" class="py-1">الحرفيون والقصص</a>
+          <a href="#artisans" class="py-1">حكايات حِرفة</a>
         </nav>
 
         <div class="flex h-[50px] shrink-0 items-center gap-3 p-[10px]" data-node-id="223:3438">
@@ -117,10 +131,27 @@
     </div>
 
     <div id="mobileMenu" class="hidden border-t border-line bg-surface px-5 py-4 lg:hidden">
-      <nav class="grid gap-3 text-sm font-semibold">
-        <a href="#home">الرئيسية</a><a href="#shop">المتجر والأقسام</a><a href="categories.html">كل التصنيفات</a><a
-          href="vendors.html">كل المتاجر</a><a href="#season">مختارات الموسم</a><a
-          href="#artisans">الحرفيون والقصص</a>
+      <nav class="grid gap-1 text-sm font-semibold">
+        <a href="#home" class="py-2">الرئيسية</a>
+
+        <div class="mobile-nav-dropdown">
+          <button type="button" class="mobile-nav-dropdown-toggle flex w-full items-center justify-between py-2"
+            aria-expanded="false">
+            <span>تسوّق</span>
+            <i data-lucide="chevron-down" class="h-4 w-4 transition-transform duration-200"></i>
+          </button>
+          <div class="mobile-nav-dropdown-panel hidden ps-4">
+            <a href="browse.html" class="block py-2 text-muted">حسب المنتج</a>
+            <a href="categories.html" class="block py-2 text-muted">حسب الحرفة</a>
+            <a href="browse.html?sort=newest#city" class="block py-2 text-muted">حسب المدينة</a>
+            <a href="browse.html?occasion=all" class="block py-2 text-muted">حسب المناسبة</a>
+          </div>
+        </div>
+
+        <a href="vendors.html" class="py-2">الحرفيون والمتاجر</a>
+        <a href="browse.html?sale=1" class="py-2">العروض</a>
+        <a href="#season" class="py-2">مختارات الموسم</a>
+        <a href="#artisans" class="py-2">حكايات حِرفة</a>
       </nav>
     </div>
   </header>
@@ -151,7 +182,7 @@
             data-node-id="223:96"><span class="h-2 w-2 shrink-0 rounded-full bg-copper"></span><span
               class="truncate">سوق رقمي مباشر للحِرف اليدوية والمشاغل الفلسطينية الأصيلة</span></div>
           <h1
-            class="w-full font-amiri text-[36px] font-bold leading-[1.25] text-ink sm:text-5xl lg:text-[48px] lg:leading-[60px]"
+            class="w-full font-amiri text-[36px] font-bold leading-[1.25] text-ink sm:text-5xl lg:text-[40px] lg:leading-[60px]"
             data-node-id="223:100">كل قطعة تحكي حكاية...<br><em class="font-normal text-[#4a5d3a]">صنعتها أيدٍ
               فلسطينية</em> شغوفة</h1>
           <p class="w-full max-w-[576px] text-base leading-7 text-muted lg:text-lg" data-node-id="223:102">مئات القطع

@@ -41,6 +41,38 @@ $(function () {
     $('#mobileMenu').slideUp(150);
   });
 
+  $('.nav-dropdown').on('click', function (event) {
+    event.stopPropagation();
+    const $dropdown = $(this);
+    const isOpen = $dropdown.hasClass('nav-dropdown-open');
+
+    $('.nav-dropdown').removeClass('nav-dropdown-open').find('button').attr('aria-expanded', 'false');
+    if (!isOpen) {
+      $dropdown.addClass('nav-dropdown-open').find('button').attr('aria-expanded', 'true');
+    }
+  });
+
+  $(document).on('click', function () {
+    $('.nav-dropdown').removeClass('nav-dropdown-open').find('button').attr('aria-expanded', 'false');
+  });
+
+  $(document).on('keydown', function (event) {
+    if (event.key === 'Escape') {
+      $('.nav-dropdown').removeClass('nav-dropdown-open').find('button').attr('aria-expanded', 'false');
+    }
+  });
+
+  $('.mobile-nav-dropdown-toggle').on('click', function (event) {
+    event.stopPropagation();
+    const $toggle = $(this);
+    const $panel = $toggle.siblings('.mobile-nav-dropdown-panel');
+    const isOpen = $toggle.attr('aria-expanded') === 'true';
+
+    $toggle.attr('aria-expanded', String(!isOpen));
+    $toggle.find('[data-lucide="chevron-down"]').toggleClass('rotate-180', !isOpen);
+    $panel.slideToggle(150);
+  });
+
   $('#searchButton, #mobileSearchButton').on('click', function () {
     $('#searchPanel').fadeIn(160).css('display', 'block');
     setTimeout(() => $('#globalSearch').trigger('focus'), 50);
