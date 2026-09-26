@@ -425,25 +425,14 @@
         </button>
 
         <div class="flex flex-col gap-6 lg:flex-row lg:items-start">
-          <aside id="browseFilterPanel" class="hidden lg:sticky lg:top-24 lg:block lg:w-[300px] lg:shrink-0">
+          <aside id="browseFilterPanel" class="hidden lg:sticky lg:top-6 lg:flex lg:w-[300px] lg:shrink-0 lg:flex-col lg:overflow-hidden lg:max-h-[calc(100vh-3rem)]">
             <form id="browseFilters"
-              class="flex flex-col gap-5 rounded-[20px] border border-line bg-surface p-4 shadow-card sm:p-5"
+              class="scroll-thin flex min-h-0 flex-1 flex-col gap-5 overflow-y-auto rounded-[20px] border border-line bg-surface p-4 shadow-card sm:p-5"
               aria-label="فلاتر نتائج المنتجات">
               <div class="text-start">
                 <h2 class="text-[22px] font-semibold leading-8 text-ink">تصفية النتائج</h2>
                 <p class="text-sm leading-6 text-muted">اختر الفئة أو التاجر أو المدينة وحدد نطاق السعر.</p>
               </div>
-
-              <label for="sortProducts" class="flex flex-col gap-2 text-start text-sm font-bold text-ink">
-                <span>الترتيب</span>
-                <select id="sortProducts" name="sortProducts"
-                  class="h-11 rounded-[14px] border border-line bg-canvas px-3 text-sm font-semibold text-olive outline-none focus:border-sage">
-                  <option value="newest">الأحدث</option>
-                  <option value="price-asc">السعر: من الأقل للأعلى</option>
-                  <option value="price-desc">السعر: من الأعلى للأقل</option>
-                  <option value="rating-desc">الأعلى تقييماً</option>
-                </select>
-              </label>
 
               <fieldset class="min-w-0">
                 <legend class="pb-2 text-start text-sm font-bold text-ink">الفئة</legend>
@@ -525,36 +514,31 @@
                   </button>
                 </div>
               </fieldset>
+
+              <button id="clearAllFilters" type="button"
+                class="hidden w-full items-center justify-center gap-2 rounded-[14px] border border-line bg-canvas px-4 py-2.5 text-xs font-bold text-olive hover:border-sage">
+                <i data-lucide="rotate-ccw" class="h-4 w-4"></i>
+                <span>إعادة ضبط الكل</span>
+              </button>
             </form>
           </aside>
 
           <div class="flex min-w-0 flex-1 flex-col gap-6">
-            <div class="flex flex-col gap-3 rounded-[20px] border border-line bg-surface p-4 shadow-card sm:p-5">
-              <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-                <div class="text-start">
-                  <h2 class="text-[22px] font-semibold leading-8 text-ink">الفلاتر النشطة</h2>
-                  <p class="text-sm leading-6 text-muted">يمكن إزالة كل فلتر بشكل مستقل قبل متابعة التصفح.</p>
-                </div>
-                <button id="clearAllFilters" type="button"
-                  class="hidden w-fit items-center justify-center gap-2 rounded-[16px] border border-line bg-canvas px-4 py-2 text-xs font-bold text-olive hover:border-sage">
-                  <i data-lucide="rotate-ccw" class="h-4 w-4"></i>
-                  <span>إعادة ضبط الكل</span>
-                </button>
-              </div>
-              <div id="activeFilters" class="flex flex-wrap items-center gap-2">
-                <button type="button"
-                  class="active-filter-chip inline-flex min-h-9 items-center gap-1.5 rounded-full border border-sage bg-sage/40 px-3 py-1.5 text-xs font-bold text-ink"
-                  data-filter-type="category" data-filter-value="pottery">
-                  <span>الفئة: الفخار والخزف</span>
-                  <i data-lucide="x" class="h-3.5 w-3.5"></i>
-                </button>
-              </div>
-            </div>
+            <div id="activeFilters" class="hidden flex-wrap items-center gap-2"></div>
 
-        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <p id="pageSummary" class="text-start text-sm font-semibold text-muted">عرض <bdi>1</bdi>-<bdi>8</bdi> من <bdi>16</bdi> نتيجة</p>
-          <p class="text-start text-xs leading-5 text-muted">كل بطاقة تعرض اسم التاجر والتقييم والسعر بوضوح قبل الانتقال لتفاصيل المنتج.</p>
-        </div>
+            <div class="flex flex-col gap-3 rounded-[20px] border border-line bg-surface p-3 shadow-card sm:flex-row sm:items-center sm:justify-between sm:p-4">
+              <div id="sortTabs" class="flex flex-wrap items-center gap-1.5" role="tablist" aria-label="ترتيب النتائج">
+                <button type="button" data-sort="newest"
+                  class="sort-tab rounded-[12px] px-3.5 py-2 text-xs font-bold text-muted hover:text-olive [&.sort-tab-active]:bg-olive [&.sort-tab-active]:text-surface">الأحدث</button>
+                <button type="button" data-sort="price-asc"
+                  class="sort-tab rounded-[12px] px-3.5 py-2 text-xs font-bold text-muted hover:text-olive [&.sort-tab-active]:bg-olive [&.sort-tab-active]:text-surface">السعر: الأقل للأعلى</button>
+                <button type="button" data-sort="price-desc"
+                  class="sort-tab rounded-[12px] px-3.5 py-2 text-xs font-bold text-muted hover:text-olive [&.sort-tab-active]:bg-olive [&.sort-tab-active]:text-surface">السعر: الأعلى للأقل</button>
+                <button type="button" data-sort="rating-desc"
+                  class="sort-tab rounded-[12px] px-3.5 py-2 text-xs font-bold text-muted hover:text-olive [&.sort-tab-active]:bg-olive [&.sort-tab-active]:text-surface">الأعلى تقييماً</button>
+              </div>
+              <p id="pageSummary" class="text-start text-sm font-semibold text-muted">عرض <bdi>1</bdi>-<bdi>9</bdi> من <bdi>16</bdi> نتيجة</p>
+            </div>
 
         <div id="productGrid" class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 xl:grid-cols-3">
           <article
