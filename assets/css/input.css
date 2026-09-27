@@ -15,6 +15,7 @@
 @source "../../rate-order.html";
 @source "../../favorites.html";
 @source "../../*.html";
+@source "../../dashboard/*.html";
 @source "../js/app.js";
 @source "../js/auth.js";
 @source "../js/profile.js";
